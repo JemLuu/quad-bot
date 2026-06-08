@@ -10,14 +10,16 @@ Both are **remote MCP servers**. You connect each one by (1) adding it with a si
 
 ## Strava (read-only activity data)
 
-Requires an active Strava subscription. The connector is **read-only** — quad-bot can read your activities but never edit or upload them. Details: **[Strava MCP Connector](https://support.strava.com/hc/en-us/articles/46190267796237-Strava-MCP-Connector)**.
+Requires an active Strava subscription. The connector is **read-only** — quad-bot can read your activities but never edit or upload them.
 
-1. In your terminal, add the server:
+1. Open Strava's **[MCP Connector page](https://support.strava.com/hc/en-us/articles/46190267796237-Strava-MCP-Connector)** and copy the `claude mcp add` command they give you, then run it in a normal terminal. As of now that command is:
    ```bash
    claude mcp add --transport http strava-mcp https://mcp.strava.com/mcp
    ```
-2. In Claude Code, run `/mcp`, select **strava-mcp**, and complete the Strava login in your browser.
+2. Start (or restart) Claude Code with `claude`, run `/mcp`, select **strava-mcp**, and log in to your Strava account in the browser when prompted.
 3. Run `/init` (or `/update`) so quad-bot records that Strava is connected and learns its tool names.
+
+> If **strava-mcp** doesn't show up in `/mcp`, run the `claude mcp add` command from inside the quad-bot folder (it's added for the current project by default), or append `--scope user` to make it available in every project.
 
 ---
 
