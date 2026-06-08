@@ -25,11 +25,11 @@ initialized: false      # /init sets this to true LAST — it is the "setup comp
 ## Calendar
 
 - **Connected:** unknown          <!-- yes | no | unknown -->
-- **Server name:** google-calendar
+- **Server name:** google-calendar    <!-- local server: @cocal/google-calendar-mcp -->
 - **Training calendar name:** quad-bot Training
 - **Training calendar ID:** not-set   <!-- the dedicated calendar; ALL workout events go only here -->
 - **Write scope confirmed:** unknown  <!-- yes | no — needed to create events -->
-- **Tool names:** create_event, update_event, delete_event, list_events, list_calendars, get_event, suggest_time, respond_to_event
+- **Tool names:** create-event, update-event, delete-event, list-events, list-calendars, get-event, get-freebusy, search-events  <!-- confirm against /mcp -->
 - **Last successful sync:**
 
 ## Sync log
