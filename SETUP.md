@@ -67,10 +67,18 @@ quad-bot writes workouts to a **separate calendar** so it never touches your per
      --env GOOGLE_OAUTH_CREDENTIALS=$HOME/.config/quad-bot/gcp-oauth.keys.json \
      -- npx -y @cocal/google-calendar-mcp
    ```
-2. Start (or restart) Claude Code, run `/mcp`, and authenticate **google-calendar** — it opens a browser for Google sign-in/consent (you can also just ask Claude to "authenticate with Google Calendar"). Tokens are stored in `~/.config/google-calendar-mcp/tokens.json`, never in this repo.
-3. Run `/init` (or `/update`). quad-bot lists your calendars, confirms the **`quad-bot Training`** calendar with you, and stores its Calendar ID in `athlete/integrations.md`. From then on, workout events go only to that calendar.
+2. Start (or restart) Claude Code and run `/mcp` to connect the server.
 
-> Re-authenticate any time with `npx @cocal/google-calendar-mcp auth` — you'll need this roughly weekly while the consent screen stays in Testing mode.
+   > **`/mcp` "connected" ≠ logged in.** The server being reachable is *separate* from authenticating a Google account. If no account is authenticated, calendar reads fail with *"Authentication tokens are no longer valid."* You must add an account (next step).
+3. **Authenticate a Google account.** Just ask Claude to "connect my Google Calendar account" (or "add my personal Google account") — it runs the `manage-accounts` **add** action under a nickname (e.g. `personal`) and gives you an `auth_url`. Open that URL in your browser and sign in.
+
+   - **The browser account picker is where you choose/verify which Google account is used** — pick the one that owns the `quad-bot Training` calendar (e.g. your *personal* account, not a work account).
+   - Use a clear nickname per account if you have more than one (e.g. `personal`, `work`).
+   - The login link expires in ~5 minutes; if it lapses, just ask again.
+4. **Check which account you're logged in with — any time** — ask Claude to "list my Google Calendar accounts" (it runs `manage-accounts` **list**). An empty list (`"total_accounts": 0`) means *no* account is authenticated yet. Tokens are stored under `~/.config/google-calendar-mcp/`, never in this repo.
+5. Run `/init` (or `/update`). quad-bot lists your calendars, confirms the **`quad-bot Training`** calendar with you, and stores its Calendar ID in `athlete/integrations.md`. From then on, workout events go only to that calendar.
+
+> Re-authenticate any time by re-running the **add** flow above (or `npx @cocal/google-calendar-mcp auth`) — you'll need this roughly weekly while the consent screen stays in Testing mode.
 
 ---
 
@@ -79,6 +87,8 @@ quad-bot writes workouts to a **separate calendar** so it never touches your per
 - **`claude mcp add` or `npx` not found:** run them in a terminal where the Claude Code CLI and Node.js are installed.
 - **Server missing from `/mcp`:** `claude mcp add` defaults to the current project — run it from inside the quad-bot folder, or append `--scope user`. Then restart Claude Code.
 - **Calendar sign-in blocked ("app not verified" / access denied):** add your Google account under **Audience → Test users** (step B3).
+- **`/mcp` says connected but reads fail with "Authentication tokens are no longer valid":** the server is reachable but no Google account is authenticated. Ask Claude to "list my Google Calendar accounts" — if it's empty, ask it to "connect my Google account" and complete the browser sign-in (step C3).
+- **Logged in with the wrong Google account:** ask Claude to "list my Google Calendar accounts" to see which is connected, then "remove" it and re-add the correct one — the browser account picker during sign-in is where you choose.
 - **Calendar stops working after about a week:** Testing-mode tokens expire after ~7 days — re-run `npx @cocal/google-calendar-mcp auth`, or **Publish app** on the Audience tab.
 - **Calendar events fail to create:** you probably granted only read scopes — redo step B4 with the `calendar.events` write scope, then re-authenticate.
 - **Want a harder safety boundary than the dedicated calendar:** Google's `calendar.app.created` scope restricts an app to only the calendars it created. It's more involved to set up; the dedicated-calendar approach above is the recommended default.
