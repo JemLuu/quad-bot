@@ -17,8 +17,8 @@ initialized: false      # /init sets this to true LAST — it is the "setup comp
 ## Strava (read-only)
 
 - **Connected:** unknown          <!-- yes | no | unknown -->
-- **Server name:** Strava         <!-- MCP server name as it appears in /mcp -->
-- **Tool names:** not-detected    <!-- e.g. Strava:get-activities — fill in what /mcp shows -->
+- **Server name:** strava-mcp     <!-- MCP server name as it appears in /mcp -->
+- **Tool names:** not-detected    <!-- e.g. strava-mcp:get-activities — fill in what /mcp shows -->
 - **Read-only:** yes (the connector cannot write activities)
 - **Last successful read:**
 

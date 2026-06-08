@@ -24,6 +24,6 @@ quad-bot is a running-coach toolkit built from Claude Code skills. Every skill r
 ## Conventions
 
 - **Units** (mi/km) come from `athlete/profile.md`; normalize all distances/paces to the athlete's unit.
-- **MCP tools:** reference by fully-qualified name, e.g. `google-calendar:create_event`, `Strava:<tool>`. Resolve the exact server names and tool names from `athlete/integrations.md` (recorded at init). If an MCP isn't connected, degrade gracefully to manual mode — don't fail.
+- **MCP tools:** reference by fully-qualified name, e.g. `google-calendar:create_event`, `strava-mcp:<tool>`. Resolve the exact server names and tool names from `athlete/integrations.md` (recorded at init). If an MCP isn't connected, degrade gracefully to manual mode — don't fail.
 - **Keep `SKILL.md` files lean** (< 500 lines). Put detail in per-skill `reference/` files and the `_shared/` docs; reference them only when needed.
 - **Dates:** write real dates as `YYYY-MM-DD`. Templates use placeholders, not real dates.
