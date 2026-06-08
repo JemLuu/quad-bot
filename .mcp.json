@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "Strava": {
+      "type": "http",
+      "url": "${STRAVA_MCP_URL}"
+    },
+    "google-calendar": {
+      "type": "http",
+      "url": "https://calendarmcp.googleapis.com/mcp/v1"
+    }
+  }
+}

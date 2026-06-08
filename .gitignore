@@ -1,0 +1,15 @@
+# Live personal training data — NEVER commit this.
+# It is created by the /init skill from athlete-template/.
+/athlete/
+
+# Local environment / secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor noise
+.DS_Store
+*.log
+*.swp
+.idea/
+.vscode/
