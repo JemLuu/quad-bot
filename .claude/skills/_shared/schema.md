@@ -28,7 +28,7 @@ The normative contract for the shared documents in `athlete/`. Every skill reads
 | `gear.md` | scaffold | read | read | write (mileage) | tag shoe | **write (lifecycle)** | – | read |
 | `integrations.md` | **write** | read | read | write (timestamps) | – | – | read | read |
 
-`coach` is read-only across all documents.
+`coach` is read-only across all documents. `data-analyst` is read-only on the core documents too — it only writes generated dashboards to `athlete/analysis/` (gitignored), and reads from the Strava MCP.
 
 ## Per-document specs
 
