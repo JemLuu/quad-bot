@@ -20,7 +20,7 @@ Read `athlete/integrations.md`:
 ## Typical flow (scheduling workouts)
 
 1. Confirm the calendar is connected and the training calendar ID is set.
-2. Read the relevant date range across the user's calendars to find open slots (respect the constraints in `profile.md`).
+2. Read the relevant date range across the user's calendars to find open slots (respect the constraints in `profile.md`, and prefer the athlete's usual run days/times when the scheduling skill provides them).
 3. **Propose** specific placements (session → date/time) and get explicit approval.
 4. For each approved session: create the event **in the training calendar**; record the returned event ID in `plan.md`.
 5. To change a session later: update the event (or delete + recreate) using the stored ID, then refresh the mapping.
