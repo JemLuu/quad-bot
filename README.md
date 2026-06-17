@@ -25,6 +25,7 @@ quad-bot is a suite of skills that work in tandem to coach your running. They sh
 | `/gear-tracker` | Tracks shoe/equipment mileage and flags when gear is due for retirement. |
 | `/race-week` | Taper guidance, race-day pacing, and a prep checklist before a goal race. |
 | `/data-analyst` | Pulls your Strava history and builds an interactive chart dashboard plus a data-driven read on your training. |
+| `/dietician` | Helps you fuel your training — workout nutrition, a daily eating framework, and a personal fueling playbook. No food logging. |
 
 Every skill except `/init` requires you to have run `/init` first.
 

@@ -15,6 +15,7 @@ This folder is the **scaffold** for your personal quad-bot data. When you run `/
 | `check-ins.md` | History of check-ins and the plan changes you accepted/rejected | `/update` |
 | `gear.md` | Your shoes/equipment, their mileage, and retirement alerts | `/gear-tracker` |
 | `integrations.md` | Whether Strava/Calendar are connected + the init flag | `/init` |
+| `nutrition.md` | Your fueling profile and personal fueling playbook | `/dietician` |
 
 "Owned by" means that skill is the authoritative writer; other skills read the file. The full machine-readable contract is in `.claude/skills/_shared/schema.md`.
 

@@ -27,8 +27,9 @@ The normative contract for the shared documents in `athlete/`. Every skill reads
 | `check-ins.md` | scaffold | read | read | **write** | – | – | write (recap) | read |
 | `gear.md` | scaffold | read | read | write (mileage) | tag shoe | **write (lifecycle)** | – | read |
 | `integrations.md` | **write** | read | read | write (timestamps) | – | – | read | read |
+| `nutrition.md` | scaffold | read | read | read | – | – | read (race fueling) | read |
 
-`coach` is read-only across all documents. `data-analyst` is read-only on the core documents too — it only writes generated dashboards to `athlete/analysis/` (gitignored), and reads from the Strava MCP.
+`coach` is read-only across all documents. `data-analyst` is read-only on the core documents too — it only writes generated dashboards to `athlete/analysis/` (gitignored), and reads from the Strava MCP. `dietician` owns `nutrition.md` (the fueling profile + playbook) and reads profile/plan/activity/health; it writes no other document.
 
 ## Per-document specs
 
@@ -41,6 +42,7 @@ The exact section layout lives in each `athlete-template/<file>`. Key contracts:
 - **check-ins.md** — front-matter adds `check_in_count`. Sections: Latest check-in (full), Check-in history (one-liners).
 - **gear.md** — Sections: Shoes (lifecycle table), Other gear. Mileage accumulates from tagged activities (maintained incrementally).
 - **integrations.md** — front-matter `initialized: true|false` is the unlock flag. Records Strava/Calendar connection state, the **training calendar ID**, and detected MCP tool names.
+- **nutrition.md** — front-matter `owner_skill: dietician`. Sections: Fueling profile (preferences, restrictions, optional weight), Gut-tested fuels, Daily framework, Fueling playbook (pre/during/post), Race fueling (read by `race-week`), Check-in notes. A captured profile + playbook, not a food log.
 
 ## Coordination rules
 

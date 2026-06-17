@@ -9,7 +9,7 @@ quad-bot is a running-coach toolkit built from Claude Code skills. Every skill r
 
 ## The skills
 
-`/init`, `/training-plan`, `/physical-therapist`, `/update`, `/log-run`, `/coach`, `/gear-tracker`, `/race-week`, `/data-analyst`. Each lives in `.claude/skills/<name>/SKILL.md`. Shared knowledge is in `.claude/skills/_shared/`.
+`/init`, `/training-plan`, `/physical-therapist`, `/update`, `/log-run`, `/coach`, `/gear-tracker`, `/race-week`, `/data-analyst`, `/dietician`. Each lives in `.claude/skills/<name>/SKILL.md`. Shared knowledge is in `.claude/skills/_shared/`.
 
 ## Golden rules (every skill)
 
